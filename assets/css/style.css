@@ -1,0 +1,32 @@
+:root{
+    --top: #222831; 
+    --topmid: #393e46;
+    --midbottom: #00adb5;
+    --bottom: #f6f6f6;
+    --textwhite: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+header {
+    background: var(--top);
+    padding: 30px 25px;
+}
+
+main {
+    background: var(--topmid);
+}
+
+body{
+    flex: 1 ;
+}
+
+
+.topmid {
+    background: var(--topmid);
+}
+
+.midbottom {
+background: var(--midbottom);
+}
