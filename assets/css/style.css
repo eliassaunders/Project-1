@@ -9,17 +9,40 @@
 * {
     box-sizing: border-box;
 }
+
 header {
     background: var(--top);
     padding: 30px 25px;
 }
 
-main {
-    background: var(--topmid);
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-body{
-    flex: 1 ;
+main {
+    background: var(--topmid);
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+aside{
+    padding: 20px;
+    flex: 25%;
+}
+
+section{
+    flex: 75%;
+    padding: 20px;
+    background: var(--midbottom);
+    min-height: 100vh;
+
+}
+
+footer{
+    margin-top: auto;
 }
 
 
@@ -28,5 +51,11 @@ body{
 }
 
 .midbottom {
-background: var(--midbottom);
+    background: var(--midbottom);
+}
+
+@media screen and (max-width: 960px) {
+    main{
+        flex-direction: column;
+    }
 }
