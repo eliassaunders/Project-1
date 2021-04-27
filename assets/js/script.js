@@ -24,8 +24,10 @@ var submitted = function(event) {
 
     objDiv.appendChild(userText);
 
-    var searchStr = animalInput.textContent + persStr.value;
+   
+    var searchStr = animalInput.value + "+" + persStr.value;
 
+    console.log(searchStr)
     
     fetch('https://api.giphy.com/v1/gifs/search?q=' + searchStr + '&api_key=2WCCtsAYzLPcXYXldVYiYd41E1x6jlfT')
     .then(function (response) {
@@ -33,7 +35,8 @@ var submitted = function(event) {
     })
     .then(function (response) {
         console.log(response.data[0]);
-        // Create a variable that will select the <div> where the GIF will be displayed
+        // Create a variable that will select the <div> where the GIF will be displayed 
+        
         var imgContainter = document.createElement("div");
         userSec.appendChild(imgContainter);
         // Empty out the <div> before we append a GIF to it
@@ -45,6 +48,7 @@ var submitted = function(event) {
         // Append 'gifImg' to the <div>
         imgContainter.appendChild(gifImg);
     });
+   
 };
 
 console.log(persStr.value);
