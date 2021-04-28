@@ -5,7 +5,7 @@ var submit = document.querySelector('#sbmt-btn');
 var animalInput = document.querySelector("#animal-input");
 var persStr = document.querySelector("#pers");
 
-var userArr = ["Inator", "Killer", "Cutter", "Swagger", "Michael", "Robot", "droid", "wizard", "raptor", "flower", "sun", "space", "train"];
+var userArr = ["Inator", "Killer", "Cutter", "Swagger", "Michael", "Robot", "droid", "wizard", "raptor", "flower", "sun", "lover", "fighter", "hater"];
 
 var submitted = function(event) {
 
@@ -13,6 +13,9 @@ var submitted = function(event) {
 
     var objDiv = document.createElement("div");
     objDiv.setAttribute("id", "profile-div");
+    objDiv.setAttribute("class", "card");
+    objDiv.setAttribute("height", "400px");
+    objDiv.setAttribute("wdith", "300px");
 
     userSec.append(objDiv);
 
@@ -20,12 +23,12 @@ var submitted = function(event) {
 
     var userText = document.createElement("h3")
     var inputStr = nameInput.value.replaceAll(" ", "");
+    userText.setAttribute("class", "card-header");
     userText.textContent = inputStr + userFinish;
 
     objDiv.appendChild(userText);
-
    
-    var searchStr = animalInput.value + "+" + persStr.value;
+    var searchStr = persStr.value + "+" + animalInput.value;
 
     console.log(searchStr)
     
@@ -38,15 +41,22 @@ var submitted = function(event) {
         // Create a variable that will select the <div> where the GIF will be displayed 
         
         var imgContainter = document.createElement("div");
-        userSec.appendChild(imgContainter);
+        var profText = document.createElement("h3");
+        profText.textContent = "Your profile gif:"
+        objDiv.appendChild(profText);
+        objDiv.appendChild(imgContainter);
+      
         // Empty out the <div> before we append a GIF to it
         imgContainter.innerHTML = '';
 
         var gifImg = document.createElement('img');
+        gifImg.setAttribute("height", "200px");
+        gifImg.setAttribute("width", "200px");
         gifImg.setAttribute('src', response.data[0].images.fixed_height.url);
 
         // Append 'gifImg' to the <div>
-        imgContainter.appendChild(gifImg);
+        imgContainter.appendChild(gifImg);  
+       
     });
    
 };
