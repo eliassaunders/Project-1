@@ -6,7 +6,7 @@ var animalInput = document.querySelector("#animal-input");
 var persStr = document.querySelector("#pers");
 var ratingEl = document.querySelector("#rating");
 
-var userArr = ["Inator", "Killer", "Cutter", "Swagger", "Michael", "Robot", "droid", "wizard", "raptor", "flower", "sun", "lover", "fighter", "hater"];
+var userArr = ["Inator", "Killer", "Cutter", "Swagger", "Michael", "Robot", "Droid", "Wizard", "raptor", "Flower", "Sun", "Lover", "Fighter", "Hater"];
 
 var submitted = function (event, objDiv) {
 
@@ -68,15 +68,16 @@ var submitted = function (event, objDiv) {
             bio1.setAttribute("class", "card-text");
 
             var bio2 = document.createElement("p");
-            bio2.textContent = "Hello I am " + inputStr + ". ";
+            bio2.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves cartoon violence, mild thematic elements and anything that strays from g rated content." + inputStr + 
+            " I love to fish, hunt and look for minerals. " + inputStr + "'s fave show is Avatar: The Last Airbender";
             bio2.setAttribute("class", "card-text");
 
             var bio3 = document.createElement("p");
-            bio3.textContent = "Hello I am " + inputStr + ". ";
+            bio3.textContent = "Hello I am " + inputStr + ". " + inputStr + " is out here wildin and shit. Go Bears! " + inputStr + " enjoys firearms, tobacco, using minor swear words, and gambling. Patriots fucking suck!";
             bio3.setAttribute("class", "card-text");
 
             var bio4 = document.createElement("p");
-            bio4.textContent = "Hello I am " + inputStr + ". ";
+            bio4.textContent = "Hello I am " + inputStr + ". " + inputStr + "can now say fuck indiscriminetly. This bio will be very fucking vile. " + inputStr + " enjoys hard drugs, partying and adultury" + inputStr + "is an Aquarius in bed";
             bio4.setAttribute("class", "card-text");
 
             if (ratingEl.value === "g") {
@@ -94,7 +95,7 @@ var submitted = function (event, objDiv) {
                     response.json().then(function (article) {
                         var diplayEl = document.createElement("p");
                         console.log(article);
-                        diplayEl.textContent = "My interest:" + article.query.random[0].title;
+                        diplayEl.textContent = "My interest: " + article.query.random[0].title;
 
                         objDiv.appendChild(diplayEl);
                     })
