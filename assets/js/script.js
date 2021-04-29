@@ -22,10 +22,10 @@ var submitted = function (event, objDiv) {
 
     var userFinish = userArr[Math.floor(Math.random() * userArr.length)];
 
-    var userText = document.createElement("h3")
+    var userText = document.createElement("h3");
     var inputStr = nameInput.value.replaceAll(" ", "");
     userText.setAttribute("class", "card-header");
-    userText.textContent = inputStr + userFinish;
+    userText.textContent = "Username: " + inputStr + userFinish;
 
     objDiv.appendChild(userText);
 
@@ -33,7 +33,7 @@ var submitted = function (event, objDiv) {
 
     console.log(searchStr)
 
-    fetch('https://api.giphy.com/v1/gifs/search?q=' + searchStr + '&api_key=2WCCtsAYzLPcXYXldVYiYd41E1x6jlfT')
+    fetch('https://api.giphy.com/v1/gifs/search?q=' + searchStr + '&r=' + ratingEl.value + '&api_key=2WCCtsAYzLPcXYXldVYiYd41E1x6jlfT')
         .then(function (response) {
             return response.json();
         })
@@ -77,7 +77,7 @@ var submitted = function (event, objDiv) {
             bio3.setAttribute("class", "card-text");
 
             var bio4 = document.createElement("p");
-            bio4.textContent = "Hello I am " + inputStr + ". " + inputStr + "can now say fuck indiscriminetly. This bio will be very fucking vile. " + inputStr + " enjoys hard drugs, partying and adultury" + inputStr + "is an Aquarius in bed";
+            bio4.textContent = "Hello I am " + inputStr + ". " + inputStr + " can now say fuck indiscriminetly. This bio will be very fucking vile. " + inputStr + " enjoys hard drugs, partying and adultury" + inputStr + "is an Aquarius in bed";
             bio4.setAttribute("class", "card-text");
 
             if (ratingEl.value === "g") {
