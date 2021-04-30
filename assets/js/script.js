@@ -63,22 +63,22 @@ var submitted = function (event, objDiv) {
             buttonG.setAttribute("class", "card-button")
 
             var bio1 = document.createElement("p");
-            bio1.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves to run through fields and " + inputStr + " enjoys the presence of other people and animals." + inputStr + 
+            bio1.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves to run through fields and " + inputStr + " enjoys the presence of other people and animals. " + inputStr + 
             " likes candy, horses and botox" ;
-            bio1.setAttribute("class", "card-text");
+            bio1.setAttribute("class", "card-content");
 
             var bio2 = document.createElement("p");
-            bio2.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves cartoon violence, mild thematic elements and anything that strays from g rated content." + inputStr + 
+            bio2.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves cartoon violence, mild thematic elements and anything that strays from g rated content. " + inputStr + 
             " I love to fish, hunt and look for minerals. " + inputStr + "'s fave show is Avatar: The Last Airbender";
-            bio2.setAttribute("class", "card-text");
+            bio2.setAttribute("class", "card-content");
 
             var bio3 = document.createElement("p");
             bio3.textContent = "Hello I am " + inputStr + ". " + inputStr + " is out here wildin and shit. Go Bears! " + inputStr + " enjoys firearms, tobacco, using minor swear words, and gambling. Patriots fucking suck!";
-            bio3.setAttribute("class", "card-text");
+            bio3.setAttribute("class", "card-content");
 
             var bio4 = document.createElement("p");
-            bio4.textContent = "Hello I am " + inputStr + ". " + inputStr + " can now say fuck indiscriminetly. This bio will be very fucking vile. " + inputStr + " enjoys hard drugs, partying and adultury" + inputStr + "is an Aquarius in bed";
-            bio4.setAttribute("class", "card-text");
+            bio4.textContent = "Hello I am " + inputStr + ". " + inputStr + " can now say fuck indiscriminetly. This bio will be very fucking vile. " + inputStr + " enjoys hard drugs, partying and adultury " + inputStr + " is an Aquarius in bed";
+            bio4.setAttribute("class", "card-content");
 
             if (ratingEl.value === "g") {
                 objDiv.appendChild(bio1);
@@ -94,6 +94,7 @@ var submitted = function (event, objDiv) {
                     console.log(response);
                     response.json().then(function (article) {
                         var diplayEl = document.createElement("p");
+                        diplayEl.setAttribute("class", "card-content");
                         console.log(article);
                         diplayEl.textContent = "My interest: " + article.query.random[0].title;
 
