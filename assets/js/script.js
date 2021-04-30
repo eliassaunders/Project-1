@@ -22,9 +22,9 @@ var submitted = function (event, objDiv) {
 
     var userFinish = userArr[Math.floor(Math.random() * userArr.length)];
 
-    var userText = document.createElement("h3");
+    var userText = document.createElement("h2");
     var inputStr = nameInput.value.replaceAll(" ", "");
-    userText.setAttribute("class", "card-header");
+    userText.setAttribute("class", "simplemarg");
     userText.textContent = "Username: " + inputStr + userFinish;
 
     objDiv.appendChild(userText);
@@ -43,6 +43,7 @@ var submitted = function (event, objDiv) {
 
             var imgContainter = document.createElement("div");
             var profText = document.createElement("h3");
+            profText.setAttribute("class", "imgmarg")
             profText.textContent = "Your profile gif:"
             objDiv.appendChild(profText);
             objDiv.appendChild(imgContainter);
@@ -53,6 +54,7 @@ var submitted = function (event, objDiv) {
             var gifImg = document.createElement('img');
             gifImg.setAttribute("height", "200px");
             gifImg.setAttribute("width", "200px");
+            gifImg.setAttribute("class", "imgmarg");
             gifImg.setAttribute('src', response.data[0].images.fixed_height.url);
 
             // Append 'gifImg' to the <div>
@@ -69,7 +71,7 @@ var submitted = function (event, objDiv) {
 
             var bio2 = document.createElement("p");
             bio2.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves cartoon violence, mild thematic elements and anything that strays from g rated content. " + inputStr + 
-            " I love to fish, hunt and look for minerals. " + inputStr + "'s fave show is Avatar: The Last Airbender";
+            "'s loves to fish, hunt and look for minerals. " + inputStr + "'s fave show is Avatar: The Last Airbender";
             bio2.setAttribute("class", "card-content");
 
             var bio3 = document.createElement("p");
