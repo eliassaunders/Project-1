@@ -5,10 +5,12 @@ var submit = document.querySelector('#sbmt-btn');
 var animalInput = document.querySelector("#animal-input");
 var persStr = document.querySelector("#pers");
 var ratingEl = document.querySelector("#rating");
+var saveEl = document.querySelector("#save-btn");
+var saveArr = [];
 
 var userArr = ["Inator", "Killer", "Cutter", "Swagger", "Michael", "Robot", "Droid", "Wizard", "raptor", "Flower", "Sun", "Lover", "Fighter", "Hater"];
 
-var submitted = function (event, objDiv) {
+var submitted = function (event, inputVal, animalScope) {
 
     event.preventDefault();
 
@@ -22,14 +24,20 @@ var submitted = function (event, objDiv) {
 
     var userFinish = userArr[Math.floor(Math.random() * userArr.length)];
 
+
     var userText = document.createElement("h2");
     var inputStr = nameInput.value.replaceAll(" ", "");
     userText.setAttribute("class", "simplemarg");
-    userText.textContent = "Username: " + inputStr + userFinish;
+    userText.textContent = "Username: " + (inputStr || inputVal) + userFinish;
+    localStorage.setItem("username", inputStr);
 
     objDiv.appendChild(userText);
 
-    var searchStr = persStr.value + "+" + animalInput.value;
+    var animalVal = animalInput.value;
+
+    localStorage.setItem("animal", animalVal);
+
+    var searchStr = persStr.value + "+" + (animalVal || animalScope);
 
     console.log(searchStr)
 
@@ -65,13 +73,13 @@ var submitted = function (event, objDiv) {
             buttonG.setAttribute("class", "card-button")
 
             var bio1 = document.createElement("p");
-            bio1.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves to run through fields and " + inputStr + " enjoys the presence of other people and animals. " + inputStr + 
-            " likes candy, horses and botox" ;
+            bio1.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves to run through fields and " + inputStr + " enjoys the presence of other people and animals. " + inputStr +
+                " likes candy, horses and botox";
             bio1.setAttribute("class", "card-content");
 
             var bio2 = document.createElement("p");
-            bio2.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves cartoon violence, mild thematic elements and anything that strays from g rated content. " + inputStr + 
-            "'s loves to fish, hunt and look for minerals. " + inputStr + "'s fave show is Avatar: The Last Airbender";
+            bio2.textContent = "Hello I am " + inputStr + ". " + inputStr + " loves cartoon violence, mild thematic elements and anything that strays from g rated content. " + inputStr +
+                "'s loves to fish, hunt and look for minerals. " + inputStr + "'s fave show is Avatar: The Last Airbender";
             bio2.setAttribute("class", "card-content");
 
             var bio3 = document.createElement("p");
@@ -86,7 +94,7 @@ var submitted = function (event, objDiv) {
                 objDiv.appendChild(bio1);
             } else if (ratingEl.value === "pg") {
                 objDiv.appendChild(bio2);
-            } else if (ratingEl.value === "pg-13"){
+            } else if (ratingEl.value === "pg-13") {
                 objDiv.appendChild(bio3);
             } else if (ratingEl.value === "r") {
                 objDiv.appendChild(bio4);
@@ -108,6 +116,14 @@ var submitted = function (event, objDiv) {
         });
 };
 
+var saveFunc = function (event) {
+    event.preventDefault();
+    var newUserBase = localStorage.getItem("username");
+    console.log(newUserBase);
+    var animalSave = localStorage.getItem("animal");
+    console.log(animalSave);
+    submitted(event, newUserBase, animalSave);
+}
 
-
+saveEl.addEventListener("click", saveFunc);
 submit.addEventListener("click", submitted);
